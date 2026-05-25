@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ແບບສອບຖາມ</title>
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body{
+            font-family:'Noto Sans Lao',sans-serif;
+
+            min-height:100vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            position:relative;
+            overflow:hidden;
+
+            /* BACKGROUND */
+            background-image:url("./bg-magic.jpeg");
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-position:center center;
+
+            padding:20px;
+        }
+
+        /* 🔥 ทำให้พื้นหลังชัดขึ้น */
+        body::before{
+            content:"";
+            position:absolute;
+            inset:0;
+
+            background:rgba(0,0,0,0.15);
+
+            z-index:1;
+        }
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .main-container{
+            width:100%;
+            max-width:760px;
+
+            min-height:100vh;
+
+            display:flex;
+            flex-direction:column;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            position:relative;
+            z-index:2;
+
+            padding:40px 0;
+        }
+
+        /* =========================
+           HEADER BOX
+        ========================= */
+
+        .text-header-zone{
+            width:100%;
+
+            padding:35px 30px;
+
+            border-radius:28px;
+
+            /* 🔥 โปร่งใส */
+            background:rgba(5,10,20,0.62);
+
+            border:1px solid rgba(255,255,255,0.10);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.35);
+
+            text-align:center;
+        }
+
+        .text-header-zone h1{
+            font-size:3rem;
+            color:white;
+
+            margin-bottom:18px;
+
+            font-weight:700;
+        }
+
+        .text-header-zone h2{
+            font-size:1.25rem;
+            line-height:1.9;
+
+            color:#facc15;
+
+            margin-bottom:20px;
+
+            font-weight:600;
+        }
+
+        .text-header-zone p{
+            color:#f1f5f9;
+
+            font-size:1rem;
+            line-height:2;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn-google-form{
+            width:280px;
+
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+
+            padding:22px;
+
+            border-radius:60px;
+
+            text-decoration:none;
+
+            /* 🔥 พื้นดำ */
+            background:black;
+
+            /* 🔥 ขอบเหลือง */
+            border:2px solid #facc15;
+
+            color:white;
+
+            /* 🔥 แสง */
+            box-shadow:
+                0 0 10px rgba(250,204,21,0.6),
+                0 0 25px rgba(250,204,21,0.35);
+
+            transition:0.3s;
+        }
+
+        .btn-google-form:hover{
+            transform:translateY(-5px);
+
+            box-shadow:
+                0 0 15px rgba(250,204,21,0.8),
+                0 0 40px rgba(250,204,21,0.5);
+        }
+
+        .btn-google-form i{
+            font-size:28px;
+            margin-bottom:8px;
+
+            color:#711196;
+        }
+
+        .main-btn-text{
+            font-size:1.4rem;
+            font-weight:700;
+
+            display:block;
+            width:100%;
+
+            text-align:center;
+
+            line-height:1.5;
+        }
+
+        .sub-btn-text{
+            margin-top:3px;
+            font-size:0.9rem;
+
+            color:#facc15;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width:768px){
+
+            .main-container{
+                padding:20px 0;
+            }
+
+            .text-header-zone{
+                padding:28px 20px;
+            }
+
+            .text-header-zone h1{
+                font-size:2.2rem;
+            }
+
+            .text-header-zone h2{
+                font-size:1rem;
+            }
+
+            .text-header-zone p{
+                font-size:0.92rem;
+                line-height:1.8;
+            }
+
+            /* 🔥 ปุ่มขนาดเดิม */
+            .btn-google-form{
+                width:280px;
+            }
+
+        }
+
+        @media(max-width:480px){
+
+            .text-header-zone h1{
+                font-size:1.8rem;
+            }
+
+            .text-header-zone h2{
+                font-size:0.9rem;
+            }
+
+            .text-header-zone p{
+                font-size:0.82rem;
+            }
+
+            .main-btn-text{
+                font-size:1.15rem;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- HEADER -->
+        <div class="text-header-zone">
+
+            <h1>ແບບສອບຖາມ</h1>
+
+            <h2>
+                ຫົວຂໍ້: ສຶກສາຄວາມຄິດເຫັນຕໍ່ກັບ <br>
+                ປັດໄຈທີ່ເຮັດໃຫ້ນັກສຶກສາເລືອກ <br>
+                ເຮັດວຽກເສີມ
+            </h2>
+
+            <p>
+                ສະບາຍດີໝູ່ເພື່ອນ 👋 <br>
+                ຂໍລົບກວນເວລາພຽງ 2-3 ນາທີ ເພື່ອຊ່ວຍຕອບແບບສອບຖາມໃຫ້ແນ່ເດີ້ <br>
+                ເພາະທຸກໆຄຳຕອບຂອງພວກເຈົ້າ ແມ່ນມີຄວາມໝາຍສຳຄັນຫຼາຍ <br>
+                ຕໍ່ກັບພວກຂ້ອຍ ແລະ ເປັນກຳລັງຫຼັກທີ່ຈະຊ່ວຍໃຫ້ພວກຂ້ອຍຮຽນຈົບ 😂
+            </p>
+
+        </div>
+
+        <!-- BUTTON -->
+        <a class="btn-google-form"
+           href="https://docs.google.com/forms/d/e/1FAIpQLScch9G0_W5D56UVyNfPtkePjjv7jDs8pd_m-kflyrIFZXHN3A/viewform?usp=publish-editor"
+           target="_blank">
+
+            <i class="fa-solid fa-file-pen"></i>
+
+            <span class="main-btn-text">
+                ຄລິກເພື່ອຕອບແບບ <br>
+                ສອບຖາມ
+            </span>
+
+            <span class="sub-btn-text">
+                Google Form
+            </span>
+
+        </a>
+
+    </div>
+
+</body>
+</html>
