@@ -2,7 +2,8 @@
 <html lang="lo">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
     <title>ແບບສອບຖາມ</title>
 
     <!-- FONT -->
@@ -19,38 +20,47 @@
             box-sizing:border-box;
         }
 
-        /* =========================
-           BODY
-        ========================= */
+        html,
+        body{
+            width:100%;
+            min-height:100%;
+        }
 
         body{
             font-family:'Noto Sans Lao',sans-serif;
 
-            min-height:100vh;
+            min-height:100dvh;
 
             display:flex;
             justify-content:center;
-            align-items:center;
+            align-items:flex-start;
 
             position:relative;
-            overflow:hidden;
 
-            /* BACKGROUND */
+            overflow-x:hidden;
+
+            /* 🔥 BACKGROUND */
             background-image:url("./bg-magic.jpeg");
             background-repeat:no-repeat;
             background-size:cover;
-            background-position:center center;
 
-            padding:20px;
+            /* 🔥 เห็นหน้าคนตรงกลาง */
+            background-position:center 35%;
+
+            padding:
+                max(20px, env(safe-area-inset-top))
+                20px
+                max(20px, env(safe-area-inset-bottom));
         }
 
-        /* 🔥 ทำให้พื้นหลังชัดขึ้น */
+        /* 🔥 overlay */
         body::before{
             content:"";
+
             position:absolute;
             inset:0;
 
-            background:rgba(0,0,0,0.15);
+            background:rgba(0,0,0,0.18);
 
             z-index:1;
         }
@@ -63,11 +73,12 @@
             width:100%;
             max-width:760px;
 
-            min-height:100vh;
+            min-height:calc(100dvh - 40px);
 
             display:flex;
             flex-direction:column;
 
+            /* 🔥 header บน / ปุ่มล่าง */
             justify-content:space-between;
 
             align-items:center;
@@ -75,7 +86,8 @@
             position:relative;
             z-index:2;
 
-            padding:40px 0;
+            padding-top:10px;
+            padding-bottom:30px;
         }
 
         /* =========================
@@ -89,7 +101,6 @@
 
             border-radius:28px;
 
-            /* 🔥 โปร่งใส */
             background:rgba(5,10,20,0.62);
 
             border:1px solid rgba(255,255,255,0.10);
@@ -98,10 +109,13 @@
                 0 10px 30px rgba(0,0,0,0.35);
 
             text-align:center;
+
+            backdrop-filter:blur(4px);
         }
 
         .text-header-zone h1{
             font-size:3rem;
+
             color:white;
 
             margin-bottom:18px;
@@ -111,6 +125,7 @@
 
         .text-header-zone h2{
             font-size:1.25rem;
+
             line-height:1.9;
 
             color:#facc15;
@@ -124,6 +139,7 @@
             color:#f1f5f9;
 
             font-size:1rem;
+
             line-height:2;
         }
 
@@ -136,6 +152,7 @@
 
             display:flex;
             flex-direction:column;
+
             align-items:center;
             justify-content:center;
 
@@ -145,20 +162,22 @@
 
             text-decoration:none;
 
-            /* 🔥 พื้นดำ */
             background:black;
 
-            /* 🔥 ขอบเหลือง */
             border:2px solid #facc15;
 
             color:white;
 
-            /* 🔥 แสง */
             box-shadow:
                 0 0 10px rgba(250,204,21,0.6),
                 0 0 25px rgba(250,204,21,0.35);
 
             transition:0.3s;
+
+            flex-shrink:0;
+
+            /* 🔥 ดันลงล่าง */
+            margin-top:40px;
         }
 
         .btn-google-form:hover{
@@ -171,6 +190,7 @@
 
         .btn-google-form i{
             font-size:28px;
+
             margin-bottom:8px;
 
             color:#711196;
@@ -178,9 +198,11 @@
 
         .main-btn-text{
             font-size:1.4rem;
+
             font-weight:700;
 
             display:block;
+
             width:100%;
 
             text-align:center;
@@ -190,73 +212,119 @@
 
         .sub-btn-text{
             margin-top:3px;
+
             font-size:0.9rem;
 
             color:#facc15;
         }
 
         /* =========================
-           RESPONSIVE
+           TABLET
         ========================= */
 
         @media(max-width:768px){
 
-            .main-container{
-                padding:0px 0;
+            body{
+                background-position:center center;
             }
 
             .text-header-zone{
-                padding:20px 12px;
+                padding:24px 18px;
             }
 
             .text-header-zone h1{
-                font-size:2.2rem;
+                font-size:2.3rem;
             }
 
             .text-header-zone h2{
                 font-size:1rem;
+
+                line-height:1.7;
             }
 
             .text-header-zone p{
                 font-size:0.92rem;
+
                 line-height:1.8;
             }
 
-            /* 🔥 ปุ่มขนาดเดิม */
             .btn-google-form{
-                width:280px;
-            }
+                width:260px;
 
+                padding:20px;
+
+                margin-top:55px;
+            }
         }
 
-       @media(max-width:480px){
+        /* =========================
+           MOBILE
+        ========================= */
 
-    /* 🔥 HEADER เล็กลง */
-    .text-header-zone{
-        padding:14px 12px;   /* ลด padding */
-    }
+        @media(max-width:480px){
 
-    .text-header-zone h1{
-        font-size:1.8rem;
-    }
+            body{
+                /* 🔥 เห็นหน้าคนมากขึ้น */
+                background-position:center 28%;
 
-    .text-header-zone h2{
-        font-size:0.9rem;
-    }
+                padding:
+                    max(14px, env(safe-area-inset-top))
+                    14px
+                    max(16px, env(safe-area-inset-bottom));
+            }
 
-    .text-header-zone p{
-        font-size:0.82rem;
-    }
+            .main-container{
+                min-height:calc(100dvh - 28px);
 
-    .main-btn-text{
-        font-size:1.15rem;
-    }
+                padding-bottom:12px;
+            }
 
-    /* 🔥 ดันทั้งหน้าให้ขึ้นบน */
-    .main-container{
-        padding:20px 0 10px 0;  /* จาก 40 → เล็กลง */
-    }
-}
+            .text-header-zone{
+                padding:16px 14px;
+
+                border-radius:22px;
+            }
+
+            .text-header-zone h1{
+                font-size:1.9rem;
+
+                margin-bottom:12px;
+            }
+
+            .text-header-zone h2{
+                font-size:0.92rem;
+
+                line-height:1.6;
+
+                margin-bottom:14px;
+            }
+
+            .text-header-zone p{
+                font-size:0.82rem;
+
+                line-height:1.65;
+            }
+
+            /* 🔥 ปุ่มลงล่าง */
+            .btn-google-form{
+                width:100%;
+                max-width:260px;
+
+                padding:18px 16px;
+
+                border-radius:40px;
+
+                margin-top:70px;
+            }
+
+            .main-btn-text{
+                font-size:1.08rem;
+            }
+
+            .sub-btn-text{
+                font-size:0.82rem;
+            }
+        }
 
     </style>
 </head>
@@ -286,9 +354,11 @@
         </div>
 
         <!-- BUTTON -->
-        <a class="btn-google-form"
-           href="https://docs.google.com/forms/d/e/1FAIpQLScch9G0_W5D56UVyNfPtkePjjv7jDs8pd_m-kflyrIFZXHN3A/viewform?usp=publish-editor"
-           target="_blank">
+        <a
+            class="btn-google-form"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScch9G0_W5D56UVyNfPtkePjjv7jDs8pd_m-kflyrIFZXHN3A/viewform?usp=publish-editor"
+            target="_blank"
+        >
 
             <i class="fa-solid fa-file-pen"></i>
 
